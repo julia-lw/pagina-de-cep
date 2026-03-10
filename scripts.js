@@ -18,8 +18,12 @@ formulario.addEventListener("submit",async(evento)=>{
             resultado.innerHTML("CEP inválido.")
         }else{
             resultado.innerHTML="Rua: "+dados.logradouro+"<br>"+"Bairro: "+dados.bairro+"<br> Cidade: "+dados.localidade+" - "+dados.uf;
+            const cidade = dados.localidade;
+            //https://geocoding-api.open-meteo.com/v1/search?name=Berlin&count=10&language=en&format=json&countryCode=BR
+
         }
-    }catch{
+    }catch (error){
+        resultado.innerHTML("Erro ao consultar o CEP.")
 
     }
 });
