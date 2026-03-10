@@ -19,8 +19,16 @@ formulario.addEventListener("submit",async(evento)=>{
         }else{
             resultado.innerHTML="Rua: "+dados.logradouro+"<br>"+"Bairro: "+dados.bairro+"<br> Cidade: "+dados.localidade+" - "+dados.uf;
             const cidade = dados.localidade;
-            //https://geocoding-api.open-meteo.com/v1/search?name=Berlin&count=10&language=en&format=json&countryCode=BR
-
+            const dadosGeo = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cidade)}&count=10&language=en&format=json&countryCode=BR`);
+            const dadosGeoJson = await dadosGeo.json();
+            console.log(dadosGeoJson);
+            if(dadosGeoJson.results && dadosGeoJson.length>0 ){
+                const {latitude,longitude} = dadosGeoJson.results[0];
+                console.log(latitude);
+                console.log(longitude);
+            }else{
+                console.log("Não entrou.")
+            }
         }
     }catch (error){
         resultado.innerHTML("Erro ao consultar o CEP.")
