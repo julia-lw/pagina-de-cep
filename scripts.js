@@ -22,7 +22,7 @@ formulario.addEventListener("submit",async(evento)=>{
             const dadosGeo = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cidade)}&count=10&language=en&format=json&countryCode=BR`);
             const dadosGeoJson = await dadosGeo.json();
             console.log(dadosGeoJson);
-            if(dadosGeoJson.results && dadosGeoJson.length>0 ){
+            if(dadosGeoJson.results && dadosGeoJson.results.length>0 ){
                 const {latitude,longitude} = dadosGeoJson.results[0];
                 //console.log(latitude);
                 //console.log(longitude);
