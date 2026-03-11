@@ -17,7 +17,8 @@ formulario.addEventListener("submit",async(evento)=>{
         if(dados.error){
             resultado.innerHTML("CEP inválido.")
         }else{
-            resultado.innerHTML="Rua: "+dados.logradouro+"<br>"+"Bairro: "+dados.bairro+"<br> Cidade: "+dados.localidade+" - "+dados.uf;
+            // Mudar aqui
+            const resultadoCEP ="Rua: "+dados.logradouro+"<br>"+"Bairro: "+dados.bairro+"<br> Cidade: "+dados.localidade+" - "+dados.uf;
             const cidade = dados.localidade;
             const dadosGeo = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cidade)}&count=10&language=en&format=json&countryCode=BR`);
             const dadosGeoJson = await dadosGeo.json();
@@ -33,6 +34,8 @@ formulario.addEventListener("submit",async(evento)=>{
             }else{
                 console.log("Não entrou.")
             }
+            
+            resultado.innerHTML=resultadoCEP;
         }
     }catch (error){
         resultado.innerHTML("Erro ao consultar o CEP.")
