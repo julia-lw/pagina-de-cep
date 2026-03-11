@@ -24,8 +24,12 @@ formulario.addEventListener("submit",async(evento)=>{
             console.log(dadosGeoJson);
             if(dadosGeoJson.results && dadosGeoJson.length>0 ){
                 const {latitude,longitude} = dadosGeoJson.results[0];
-                console.log(latitude);
-                console.log(longitude);
+                //console.log(latitude);
+                //console.log(longitude);
+                //https://api.open-meteo.com/v1/forecast?latitude=-27.2142&longitude=-49.6431&current_weather=true
+                const clima = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`);
+                const climaJson = await clima.json();
+                console.log(climaJson);
             }else{
                 console.log("Não entrou.")
             }
