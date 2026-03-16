@@ -34,7 +34,7 @@ formulario.addEventListener("submit",async(evento)=>{
                 //console.log(climaJson);
                 const temperatura = climaJson.current_weather.temperature;
                 const velocVento = climaJson.current_weather.windspeed;
-                const resultadoClima ="<br>Temperatura: "+temperatura+" °C"+"<br>"+"Velocidade do vento: "+velocVento+"Km/h.";
+                const resultadoClima ="<br>Temperatura: "+temperatura+" °C"+"<br>"+"Velocidade do vento: "+velocVento+"Km/h";
                  resultado.innerHTML=(resultadoCEP+resultadoClima);
             }else{
                 console.log("Não entrou.")
