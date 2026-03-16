@@ -49,12 +49,12 @@ input {
 }
 
 input:focus {
-    border-color: #007bff;
+    border-color: #638ab4;
 }
 
 button {
     padding: 12px;
-    background-color: #007bff;
+    background-color: #82bbf3;
     color: white;
     border: none;
     border-radius: 8px;
@@ -65,7 +65,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #5080b3;
 }
 
 /* Área de Resultado */
