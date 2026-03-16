@@ -1,0 +1,127 @@
+/* Reset básico e fonte */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container principal (Card) */
+#cepForm, #resultado {
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+#cepForm {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+/* Input e Botão */
+input {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #007bff;
+}
+
+button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Área de Resultado */
+#resultado {
+    margin-top: 0; /* Removendo margem extra se estiver vazio */
+    line-height: 1.8;
+    color: #444;
+    text-align: left;
+    display: none; /* Esconde quando vazio */
+}
+
+/* Quando houver conteúdo no resultado, o JS deve mostrar (ajuste abaixo) */
+#resultado:not(:empty) {
+    display: block;
+}
+
+/* Estilização dos dados específicos dentro do resultado */
+#resultado b {
+    color: #007bff;
+}
+
+#loader {
+    display: block;
+    margin: 0 auto;
+    width: 50px;
+}
+/* Este é o "pai" que coloca os filhos lado a lado */
+.container-principal {
+    display: flex;
+    flex-direction: row; /* Alinha em linha */
+    justify-content: center; /* Centraliza o conjunto na tela */
+    align-items: flex-start; /* Alinha o topo das caixas */
+    gap: 20px; /* Cria o espaço entre as duas caixas */
+    width: 100%;
+    max-width: 900px; /* Largura máxima para não sumirem nas bordas */
+}
+
+/* Ajuste nas caixas individuais */
+#cepForm, #resultado {
+    flex: 1; /* Faz as duas caixas terem a mesma largura base */
+    min-width: 300px; /* Impede que fiquem espremidas demais */
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    margin-bottom: 0; /* Remove a margem de baixo que tínhamos antes */
+}
+
+/* Responsividade: Se a tela for pequena (celular), elas voltam a ficar uma sobre a outra */
+@media (max-width: 650px) {
+    .container-principal {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #cepForm, #resultado {
+        width: 100%;
+    }
+}
